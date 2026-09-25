@@ -1,5 +1,5 @@
 import { AbsoluteFill } from 'remotion';
-import { BlurText } from '../components/blurText';
+import { BlurText } from '../components/BlurText';
 import { Badge } from '../components/Badge';
 import { useRevenueValue } from '../hooks/useRevenueValue';
 import { useExit } from '../hooks/useExit';
