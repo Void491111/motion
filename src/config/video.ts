@@ -1,0 +1,1 @@
+export const VIDEO = { width: 1080, height: 1920, fps: 60, durationInFrames: 1800 };
