@@ -5,9 +5,12 @@ import { ChipRing } from '../components/ChipRing';
 import { usePopIn } from '../hooks/usePopIn';
 import { useShrink } from '../hooks/useShrink';
 import { useExit } from '../hooks/useExit';
-import { CUT_LAYOUT as L, CUT_TIMING as T } from '../config/cut';
+import { buildChips } from '../utils/buildChips';
+import { CHIP_POSITIONS, CUT_LAYOUT as L, CUT_TIMING as T } from '../config/cut';
 import { COPY } from '../config/copy';
 import { COLORS, TYPE } from '../config/theme';
+
+const CHIPS = buildChips(COPY.chips, CHIP_POSITIONS, T.chipsIn, T.chipStagger);
 
 export function CutScene({ duration }: { duration: number }) {
   const exit = useExit(duration);
@@ -24,7 +27,7 @@ export function CutScene({ duration }: { duration: number }) {
           <div style={shrink}><StoreIcon size={L.storeSize} /></div>
         </div>
       </AbsoluteFill>
-      <ChipRing />
+      <ChipRing items={CHIPS} />
     </AbsoluteFill>
   );
 }

@@ -5,6 +5,7 @@ export const COPY = {
   own: 'Own your store.',
   cta: 'Free consultation.',
   chips: ['0.5% tax', 'Platform fees', 'Their rules'],
+  extraChips: ['Commission', 'Ad costs', 'Not your data'],
   url: 'www.umbiteams.com',
   taxBadge: '-0.5%',
 };

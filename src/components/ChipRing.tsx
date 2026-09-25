@@ -1,14 +1,14 @@
 import { AbsoluteFill } from 'remotion';
 import { Chip } from './Chip';
-import { CHIP_POSITIONS, CUT_TIMING as T } from '../config/cut';
-import { COPY } from '../config/copy';
+import type { ChipItem } from '../utils/buildChips';
 
-export function ChipRing() {
+type Props = { items: ChipItem[]; squeeze?: number };
+
+export function ChipRing({ items, squeeze = 1 }: Props) {
   return (
     <AbsoluteFill>
-      {COPY.chips.map(function renderChip(label, i) {
-        const pos = CHIP_POSITIONS[i];
-        return <Chip key={label} label={label} x={pos.x} y={pos.y} delay={T.chipsIn + i * T.chipStagger} />;
+      {items.map(function renderChip(item) {
+        return <Chip key={item.label} label={item.label} x={item.x * squeeze} y={item.y * squeeze} delay={item.delay} />;
       })}
     </AbsoluteFill>
   );
